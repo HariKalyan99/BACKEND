@@ -1,4 +1,5 @@
 const http = require("http");
+const cors = require("cors");
 const express = require("express");
 const port1 = 8081;
 require("dotenv").config();
@@ -96,7 +97,7 @@ usersExpress.listen(port3, () => {
 const port4 = 8084;
 
 const blogsExpress = express();
-
+blogsExpress.use(cors());
 blogsExpress.use(express.json());
 blogsExpress.use("/blog", blogsRouter);
 
